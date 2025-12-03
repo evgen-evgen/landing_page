@@ -6,7 +6,6 @@
 <title>AI-пилоты для бизнеса</title>
 
 <style>
-  /* -------------------- Base -------------------- */
   * {
     margin: 0;
     padding: 0;
@@ -18,40 +17,34 @@
     overflow-x: hidden;
   }
 
-  /* -------------------- Animated Background -------------------- */
-  body::before {
-    content: "";
+  /* ---------------- VIDEO BACKGROUND ---------------- */
+  .video-bg {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 120%;
-    height: 120%;
-    background: linear-gradient(135deg, #6a5cff, #9c5cff, #4e89ff, #5f3cff);
-    background-size: 300% 300%;
-    z-index: -2;
-    animation: gradientMove 18s ease infinite;
-    filter: blur(40px);
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -3;
+  }
+  .video-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.45) blur(2px);
   }
 
-  @keyframes gradientMove {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-  }
-
-  /* Subtle noise overlay */
-  body::after {
-    content: "";
+  /* Extra gradient overlay */
+  .overlay {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
+    z-index: -2;
+    background: radial-gradient(circle at top right, rgba(130, 98, 255, 0.40), transparent 60%),
+                radial-gradient(circle at bottom left, rgba(139, 92, 246, 0.35), transparent 70%);
     pointer-events: none;
-    background: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-    opacity: 0.13;
-    z-index: -1;
   }
 
-  /* -------------------- Layout -------------------- */
+  /* ---------------- LAYOUT ---------------- */
   .container {
     max-width: 900px;
     margin: 0 auto;
@@ -79,8 +72,8 @@
   .cta {
     display: inline-block;
     padding: 16px 34px;
-    background: linear-gradient(135deg, #fff, #e6e0ff);
-    color: #6a5cff;
+    background: linear-gradient(135deg, #ffffff, #e8e3ff);
+    color: #5b48ff;
     font-weight: 600;
     text-decoration: none;
     border-radius: 14px;
@@ -89,28 +82,28 @@
   }
   .cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
   }
 
-  /* -------------------- Cards -------------------- */
+  /* ---------------- CARDS ---------------- */
   .cards {
     display: grid;
-    gap: 24px;
-    margin-top: 20px;
+    gap: 26px;
+    margin-top: 30px;
   }
 
   .card {
-    background: rgba(255, 255, 255, 0.10);
-    border: 1px solid rgba(255,255,255,0.20);
-    padding: 26px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 28px;
     border-radius: 18px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
   .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 14px 34px rgba(0,0,0,0.25);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
   }
 
   .card h3 {
@@ -122,14 +115,14 @@
   .card p {
     font-size: 18px;
     line-height: 1.55;
-    opacity: 0.88;
+    opacity: 0.92;
   }
 
   footer {
     text-align: center;
     margin-top: 80px;
-    opacity: 0.7;
-    font-size: 16px;
+    opacity: 0.75;
+    font-size: 15px;
   }
 
 </style>
@@ -137,11 +130,20 @@
 
 <body>
 
+<!-- VIDEO BACKGROUND -->
+<div class="video-bg">
+  <video autoplay muted loop playsinline>
+    <source src="https://cdn.coverr.co/videos/coverr-fluid-motion-1080p.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="overlay"></div>
+
 <div class="container">
   <header>
-    <h1>AI-инструменты для отделов продаж и поддержки</h1>
+    <h1>AI-инструменты для отдела продаж и поддержки</h1>
     <p class="subtitle">
-      Три быстрых пилота за 5–10 дней. Меньше рутины → больше продаж → быстрее ответы клиентам.
+      Три быстрых пилота за 5–10 дней.  
+      Меньше рутины → больше продаж → быстрее ответы клиентам.
     </p>
     <a href="mailto:YOUR_EMAIL_HERE" class="cta">Записаться на 20-минутный созвон</a>
   </header>
@@ -152,31 +154,32 @@
       <h3>1. Умный список клиентов для звонков</h3>
       <p>
         Автоматический ежедневный план работы для продавцов.  
-        Система формирует список: кому давно не звонили, кто интересовался, кто «завис».
-        Экономия — до 1–2 часов в день.
+        Формирует список: кому давно не звонили, кто интересовался, кто «завис».
+        Экономия до 1–2 часов в день.
       </p>
     </div>
 
     <div class="card">
       <h3>2. RAG-ассистент по внутренней документации</h3>
       <p>
-        AI, который знает ваши регламенты, прайс-листы и инструкции.
-        Отвечает сотрудникам за секунду, снижает нагрузку на руководителей и ускоряет работу команды.
+        AI, который знает ваши регламенты, прайс-листы, инструкции.  
+        Мгновенно отвечает сотрудникам и снижает нагрузку на руководителей.
       </p>
     </div>
 
     <div class="card">
-      <h3>3. AI-виджет на сайт для клиентов</h3>
+      <h3>3. AI-виджет для клиентов на сайте</h3>
       <p>
-        Умный консультант по вашим товарам и услугам.  
+        Умный консультант по товарам и услугам.  
         Помогает клиентам ориентироваться, сравнивать модели и получать ответы 24/7.
-        Увеличивает конверсию и снижает нагрузку на поддержку.
       </p>
     </div>
 
   </section>
 
-  <footer>© 2025. AI-решения для бизнеса.</footer>
+  <footer>
+    © 2025. AI-решения для бизнеса.
+  </footer>
 </div>
 
 </body>
