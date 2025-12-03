@@ -1,134 +1,183 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI-пилоты для бизнеса — автоматизация продаж</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #fafafa;
-      color: #222;
-      line-height: 1.55;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI-пилоты для бизнеса</title>
 
-    header {
-      padding: 60px 20px;
-      text-align: center;
-      background: white;
-      border-bottom: 1px solid #eee;
-    }
+<style>
+  /* -------------------- Base -------------------- */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: "Inter", sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+  }
 
-    h1 {
-      font-size: 34px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
+  /* -------------------- Animated Background -------------------- */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(135deg, #6a5cff, #9c5cff, #4e89ff, #5f3cff);
+    background-size: 300% 300%;
+    z-index: -2;
+    animation: gradientMove 18s ease infinite;
+    filter: blur(40px);
+  }
 
-    h2 {
-      font-size: 24px;
-      margin-top: 40px;
-      margin-bottom: 15px;
-    }
+  @keyframes gradientMove {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+  }
 
-    p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 18px;
-    }
+  /* Subtle noise overlay */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    background: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+    opacity: 0.13;
+    z-index: -1;
+  }
 
-    .container {
-      max-width: 860px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
+  /* -------------------- Layout -------------------- */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px 120px;
+  }
 
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      margin-bottom: 25px;
-      border: 1px solid #e5e5e5;
-    }
+  header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
 
-    .cta {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 26px;
-      background: #1c7df0;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 18px;
-      font-weight: 600;
-    }
+  h1 {
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
 
-    .cta:hover {
-      background: #145ec0;
-    }
+  p.subtitle {
+    font-size: 20px;
+    opacity: 0.85;
+    max-width: 650px;
+    margin: 0 auto 30px;
+  }
 
-    footer {
-      text-align: center;
-      margin: 60px 0 40px;
-      color: #777;
-      font-size: 15px;
-    }
-  </style>
+  .cta {
+    display: inline-block;
+    padding: 16px 34px;
+    background: linear-gradient(135deg, #fff, #e6e0ff);
+    color: #6a5cff;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 14px;
+    font-size: 18px;
+    transition: all 0.25s ease;
+  }
+  .cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  }
+
+  /* -------------------- Cards -------------------- */
+  .cards {
+    display: grid;
+    gap: 24px;
+    margin-top: 20px;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255,255,255,0.20);
+    padding: 26px;
+    border-radius: 18px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.25);
+  }
+
+  .card h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .card p {
+    font-size: 18px;
+    line-height: 1.55;
+    opacity: 0.88;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 80px;
+    opacity: 0.7;
+    font-size: 16px;
+  }
+
+</style>
 </head>
 
 <body>
 
+<div class="container">
   <header>
     <h1>AI-инструменты для отделов продаж и поддержки</h1>
-    <p>Три быстрых пилота за 5–10 дней, которые уменьшают рутину и повышают эффективность.</p>
+    <p class="subtitle">
+      Три быстрых пилота за 5–10 дней. Меньше рутины → больше продаж → быстрее ответы клиентам.
+    </p>
     <a href="mailto:YOUR_EMAIL_HERE" class="cta">Записаться на 20-минутный созвон</a>
   </header>
 
-  <div class="container">
-
-    <h2>Пилоты, которые дают быстрый эффект</h2>
+  <section class="cards">
 
     <div class="card">
       <h3>1. Умный список клиентов для звонков</h3>
       <p>
         Автоматический ежедневный план работы для продавцов.  
-        Система сама определяет, кому звонить: кого давно не трогали, кто интересовался, кто завис без движения.  
-        Экономит менеджерам 1–2 часа каждый день.
+        Система формирует список: кому давно не звонили, кто интересовался, кто «завис».
+        Экономия — до 1–2 часов в день.
       </p>
     </div>
 
     <div class="card">
       <h3>2. RAG-ассистент по внутренней документации</h3>
       <p>
-        AI, который знает ваши регламенты, прайс-листы, инструкции и отвечает сотрудникам на вопросы за секунду.
-        Снижает нагрузку на руководителей и ускоряет работу команды.
+        AI, который знает ваши регламенты, прайс-листы и инструкции.
+        Отвечает сотрудникам за секунду, снижает нагрузку на руководителей и ускоряет работу команды.
       </p>
     </div>
 
     <div class="card">
-      <h3>3. AI-виджет на сайт для ваших клиентов</h3>
+      <h3>3. AI-виджет на сайт для клиентов</h3>
       <p>
-        Умный консультант по товарам и услугам. Помогает пользователям ориентироваться в каталоге, сравнивать модели и получать ответы 24/7.
-        Увеличивает конверсию и снижает количество однотипных вопросов.
+        Умный консультант по вашим товарам и услугам.  
+        Помогает клиентам ориентироваться, сравнивать модели и получать ответы 24/7.
+        Увеличивает конверсию и снижает нагрузку на поддержку.
       </p>
     </div>
 
-    <h2>Почему это работает</h2>
-    <p>
-      Все пилоты делаются быстро, не требуют сложных интеграций и дают понятный результат:
-      меньше рутины → структурированные данные → больше продаж → быстрее ответы клиентам.
-    </p>
+  </section>
 
-    <div style="text-align:center; margin-top: 40px;">
-      <a href="mailto:YOUR_EMAIL_HERE" class="cta">Связаться</a>
-    </div>
-
-  </div>
-
-  <footer>
-    © 2025. AI-решения для бизнеса.
-  </footer>
+  <footer>© 2025. AI-решения для бизнеса.</footer>
+</div>
 
 </body>
 </html>
