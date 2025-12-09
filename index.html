@@ -29,7 +29,7 @@
       </p>
 
       <div class="hero-footer">
-        <a href="mailto:YOUR_EMAIL" class="btn" data-mailto>Записаться на 20 минутный звонок →</a>
+        <a href="mailto:YOUR_EMAIL" class="btn" data-mailto>Узнать, подходит ли AI-пилот →</a>
         <!-- <span class="meta">1–2 процесса • 7–10 дней • понятный объём и бюджет</span> -->
       </div>
     </section>
@@ -343,7 +343,7 @@
     <section class="cta">
       <h2>Хотите понять, где AI даст эффект именно у вас?</h2>
       <p>Выберите один процесс — и мы запустим быстрый пилот, чтобы увидеть результат в действии.</p>
-      <a href="mailto:YOUR_EMAIL" class="btn dark" data-mailto>Назначить звонок</a>
+      <a href="mailto:YOUR_EMAIL" class="btn dark" data-mailto>Обсудить пилот для вашей компании →</a>
     </section>
 
     <footer>
@@ -357,16 +357,20 @@
       const email = 'YOUR_EMAIL';
       const subject = 'Запрос на AI-пилот';
       const body = [
-        'Привет! Хотим запустить AI-пилот.',
+        'Здравствуйте!',
+        'Я хочу обсудить AI-пилот и понять, какой из вариантов лучше подойдёт для нашего процесса.',
         '',
-        'Компания:',
-        'Контакт:',
-        'Пилот: Продажи / Снабжение / Поддержка / Другое',
-        'Цель:',
-        'Данные: CRM / документы / сайт',
-        'Сроки:',
-        'Дополнительно:'
-      ].join('\\n');
+        'Наш бизнес:',
+        '[краткое описание]',
+        '',
+        'Что хотелось бы улучшить:',
+        '[1–2 проблемы, которые видите]',
+        '',
+        'Когда удобно созвониться:',
+        '[варианты времени]',
+        '',
+        'Спасибо!'
+      ].join('\n');
 
       const encoded = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       document.querySelectorAll('[data-mailto]').forEach(link => {
