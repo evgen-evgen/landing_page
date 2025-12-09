@@ -47,7 +47,7 @@ body {
   }
   
   /* --------- CARDS --------- */
-  .card {
+.card {
     background: rgba(255,255,255,0.07);
     border: 1px solid rgba(255,255,255,0.13);
     border-radius: 22px;
@@ -58,11 +58,16 @@ body {
   }
   
   .hero {
-    background: linear-gradient(145deg, rgba(255,255,255,0.16), rgba(10,10,22,0.95));
+    padding: 10px 6px 6px;
+    margin-bottom: 38px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
   
   /* --------- TYPOGRAPHY --------- */
-  h1 {
+h1 {
     font-size: 42px;
     line-height: 1.15;
     margin-bottom: 14px;
@@ -91,11 +96,27 @@ body {
     letter-spacing: 0.16em;
   }
   
-  .subtitle {
+.subtitle {
     font-size: 15px;
     opacity: 0.82;
     max-width: 650px;
     line-height: 1.55;
+  }
+  
+  /* Hero tweaks */
+  .hero h1 {
+    /* display: flex;
+    text-align: center; */
+    font-size: clamp(44px, 5vw, 66px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 12px 0 18px;
+  }
+  
+  .hero .subtitle {
+    font-size: 17px;
+    max-width: 780px;
+    opacity: 0.9;
   }
   
   /* --------- BUTTONS --------- */
@@ -136,14 +157,24 @@ body {
   }
   
   /* --------- LAYOUT --------- */
-  .columns {
+.columns {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 22px;
   }
+
+  .columns > div {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
   
   .case {
-    margin-bottom: 12px;
+    padding: 14px 14px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.04);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
   }
   
   .case p {
@@ -159,7 +190,7 @@ body {
     gap: 18px;
   }
   
-  .mock {
+.mock {
     background: linear-gradient(135deg, #12141f, #1c2031);
     border: 1px solid rgba(255,255,255,0.12);
     border-radius: 16px;
@@ -170,18 +201,34 @@ body {
     box-shadow: 0 20px 50px rgba(0,0,0,0.85);
   }
   
+  .mock-image {
+    padding: 0;
+    overflow: hidden;
+    background: rgba(0,0,0,0.2);
+  }
+  
+  .mock-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
   /* --------- STEPS --------- */
   .steps {
     list-style: none;
     padding-left: 0;
   }
   
-  .steps li {
+.steps li {
     display: flex;
     gap: 10px;
     font-size: 14px;
     opacity: 0.9;
     margin-bottom: 8px;
+    padding: 10px 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.04);
   }
   
   .steps li span {
@@ -197,16 +244,161 @@ body {
   }
   
   /* --------- BENEFITS --------- */
-  .benefits {
-    list-style: none;
-    padding-left: 0;
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+  }
+  
+  .benefit-card {
+    position: relative;
+  
+    padding: 16px 16px 18px;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(12,14,22,0.92));
+    box-shadow: 0 12px 28px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+  
+  .benefit-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid rgba(255,255,255,0.05);
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+  
+  .benefit-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .benefit-icon .benefit-svg {
+    
+    width: 32px;
+    height: 32px;
+  }
+  
+  .benefit-card h4 {
+    margin: 0 0 6px;
+    font-size: 16px;
+    text-align: left;
+  }
+  
+  .benefit-card p {
+    margin: 0;
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.55;
+    opacity: 0.9;
+    text-align: left;
+  }
+
+  /* --------- FLOW --------- */
+  .flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 22px;
+    align-items: stretch;
+  }
+  
+  .flow-step {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-width: 220px;
+    padding: 16px 16px 18px;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(12,14,22,0.9));
+    box-shadow: 0 14px 32px rgba(0,0,0,0.65);
+    overflow: visible;
+  }
+  
+  /* .flow-step::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -14px;
+    width: 32px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(124,92,255,0.45), rgba(79,137,255,0.85));
+    box-shadow: 0 0 14px rgba(79,137,255,0.6);
+    transform: translateY(-50%);
+  }
+  
+  .flow-step::before {
+    content: "";
+    position: absolute;
+    top: calc(50% - 6px);
+    right: -18px;
+    width: 14px;
+    height: 14px;
+    border-top: 2px solid rgba(79,137,255,0.9);
+    border-right: 2px solid rgba(79,137,255,0.9);
+    transform: translateY(-50%) rotate(45deg);
+    filter: drop-shadow(0 0 8px rgba(79,137,255,0.55));
+  }
+   */
+  .flow-step:last-child::after,
+  .flow-step:last-child::before {
+    display: none;
+  }
+  
+  .flow-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #dfe1ff;
+    background: rgba(8,10,18,0.55);
+    border: 1px solid rgba(124,92,255,0.65);
+    box-shadow: inset 0 0 14px rgba(124,92,255,0.35), 0 10px 24px rgba(0,0,0,0.55);
+  }
+  
+  .flow-text {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.5;
     opacity: 0.9;
   }
   
-  .benefits li {
-    margin-bottom: 6px;
+  .flow-step::after,
+  .flow-step::before {
+    transition: filter 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .flow-step:hover::after,
+  .flow-step:hover::before {
+    filter: drop-shadow(0 0 12px rgba(79,137,255,0.7));
+  }
+  
+  @media (max-width: 760px) {
+    .flow {
+      flex-direction: column;
+    }
+  
+    .flow-step::after,
+    .flow-step::before {
+      display: none;
+    }
   }
   
   /* --------- CTA --------- */
