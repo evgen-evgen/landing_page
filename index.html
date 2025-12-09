@@ -29,7 +29,7 @@
       </p>
 
       <div class="hero-footer">
-        <a href="mailto:YOUR_EMAIL_HERE" class="btn">Записаться на 20 минутный звонок →</a>
+        <a href="mailto:YOUR_EMAIL" class="btn" data-mailto>Записаться на 20 минутный звонок →</a>
         <!-- <span class="meta">1–2 процесса • 7–10 дней • понятный объём и бюджет</span> -->
       </div>
     </section>
@@ -196,27 +196,68 @@
 
 
     <!-- PILOTS -->
-    <section class="card">
-      <p class="kicker">Пилоты</p>
-      <h2>Выберите пилот и протестируйте AI на своём бизнесе</h2>
+    <section class="pilot-showcase">
+      <p class="kicker">Пилоты AI</p>
+      <h2>Готовые продуктовые сценарии — выбирайте и запускайте</h2>
 
-      <div class="columns">
-        <div class="case">
-          <h4>Пилот для продаж</h4>
-          <p>Приоритетный список клиентов, автоконспекты звонков, выявление зависших сделок.</p>
+      <div class="pilot-grid">
+
+        <div class="pilot-panel">
+          <div class="pilot-streak"></div>
+          <div class="pilot-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"></circle>
+              <polyline points="12 7 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <h3>Пилот для отдела продаж</h3>
+          <ul>
+            <li>Умный список клиентов</li>
+            <li>AI-конспекты звонков</li>
+            <li>Поиск зависших сделок</li>
+          </ul>
+          <a href="mailto:YOUR_EMAIL" class="pilot-btn inline" data-mailto>Запросить пилот</a>
         </div>
 
-        <div class="case">
-          <h4>Пилот для снабжения</h4>
-          <p>Сравнение предложений, извлечение условий и автоматический отчёт.</p>
+        <div class="pilot-panel best-pick">
+          <div class="pilot-streak"></div>
+          <div class="pilot-badge">Лучший выбор</div>
+          <div class="pilot-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h3>Пилот для поддержки и сайта</h3>
+          <ul>
+            <li>AI-ассистент для сотрудников</li>
+            <li>Клиентский виджет на сайт</li>
+            <li>RAG по вашим документам</li>
+          </ul>
+          <a href="mailto:YOUR_EMAIL" class="pilot-btn inline" data-mailto>Запросить пилот</a>
         </div>
 
-        <div class="case">
-          <h4>Пилот для поддержки / сайта</h4>
-          <p>AI-ассистент для сотрудников или клиентский виджет.</p>
+        <div class="pilot-panel">
+          <div class="pilot-streak"></div>
+          <div class="pilot-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="14" rx="2"></rect>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+          <h3>Пилот для снабжения</h3>
+          <ul>
+            <li>Сравнение коммерческих предложений</li>
+            <li>Автоматический анализ условий</li>
+            <li>Мониторинг изменения цен</li>
+          </ul>
+          <a href="mailto:YOUR_EMAIL" class="pilot-btn inline" data-mailto>Обсудить пилот</a>
         </div>
+
+        
+
       </div>
     </section>
+      
 
 
     <!-- PROCESS -->
@@ -302,7 +343,7 @@
     <section class="cta">
       <h2>Хотите понять, где AI даст эффект именно у вас?</h2>
       <p>Выберите один процесс — и мы запустим быстрый пилот, чтобы увидеть результат в действии.</p>
-      <a href="mailto:YOUR_EMAIL_HERE" class="btn dark">Назначить созвон</a>
+      <a href="mailto:YOUR_EMAIL" class="btn dark" data-mailto>Назначить звонок</a>
     </section>
 
     <footer>
@@ -310,5 +351,28 @@
     </footer>
 
   </main>
+
+  <script>
+    (() => {
+      const email = 'YOUR_EMAIL';
+      const subject = 'Запрос на AI-пилот';
+      const body = [
+        'Привет! Хотим запустить AI-пилот.',
+        '',
+        'Компания:',
+        'Контакт:',
+        'Пилот: Продажи / Снабжение / Поддержка / Другое',
+        'Цель:',
+        'Данные: CRM / документы / сайт',
+        'Сроки:',
+        'Дополнительно:'
+      ].join('\\n');
+
+      const encoded = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      document.querySelectorAll('[data-mailto]').forEach(link => {
+        link.setAttribute('href', encoded);
+      });
+    })();
+  </script>
 </body>
 </html>

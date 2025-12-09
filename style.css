@@ -213,6 +213,157 @@ h1 {
     height: auto;
   }
   
+
+  /* ---- PILOT SHOWCASE ---- */
+  .pilot-showcase {
+    margin: 40px 0 32px;
+    padding: 32px 26px 36px;
+    border-radius: 26px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(140deg, rgba(22,12,50,0.9), rgba(12,16,28,0.94));
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 40px 90px rgba(0,0,0,0.9);
+  }
+  
+  .pilot-showcase::before {
+    content: "";
+    position: absolute;
+    inset: -20% auto auto 60%;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle at center, rgba(124,92,255,0.25), transparent 60%);
+    filter: blur(10px);
+    opacity: 0.8;
+    pointer-events: none;
+  }
+  
+  .pilot-showcase .kicker {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.22);
+  }
+  
+  .pilot-showcase h2 {
+    margin: 12px 0 26px;
+  }
+  
+  .pilot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+  }
+  
+  .pilot-panel {
+    position: relative;
+    padding: 22px 20px 28px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.8);
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  
+  .pilot-panel:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 34px 80px rgba(0,0,0,0.95);
+    border-color: rgba(124,92,255,0.35);
+  }
+  
+  .pilot-streak {
+    position: absolute;
+    top: 10%;
+    left: -2px;
+    width: 3px;
+    height: 80%;
+    background: linear-gradient(180deg, rgba(124,92,255,0), rgba(124,92,255,0.5), rgba(79,137,255,0));
+    filter: blur(0.5px);
+  }
+  
+  .pilot-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid rgba(255,255,255,0.05);
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+  
+  .pilot-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 4px auto 14px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.16), rgba(124,92,255,0.12));
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.55);
+  }
+  
+  .pilot-panel h3 {
+    margin: 0 0 12px;
+    text-align: center;
+  }
+  
+  .pilot-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px;
+    display: grid;
+    gap: 8px;
+  }
+  
+  .pilot-panel ul li {
+    font-size: 14px;
+    opacity: 0.9;
+    padding: 9px 11px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.03);
+  }
+  
+  .pilot-btn.inline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 16px;
+    background: linear-gradient(135deg, #7a5bff, #4f89ff);
+    border-radius: 12px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.7);
+    transition: 0.18s;
+  }
+  
+  .pilot-btn.inline:hover {
+    transform: translateY(-2px);
+  }
+  
+  .best-pick {
+    border: 1px solid rgba(124,92,255,0.5);
+    box-shadow: 0 30px 80px rgba(124,92,255,0.3), 0 20px 40px rgba(0,0,0,0.65);
+    background: linear-gradient(155deg, rgba(124,92,255,0.16), rgba(12,16,26,0.95));
+  }
+  
+  .pilot-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    background: linear-gradient(135deg, #7a5bff, #4f89ff);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.55);
+  }
+  
   /* --------- STEPS --------- */
   .steps {
     list-style: none;
