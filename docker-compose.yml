@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  landing:
+    build: .
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:3000/health').status==200 else 1)\""]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    environment:
+      - POSTGRES_DSN=postgresql://landing:landing@db:5432/landing
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=landing
+      - POSTGRES_PASSWORD=landing
+      - POSTGRES_DB=landing
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

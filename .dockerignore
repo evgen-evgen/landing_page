@@ -1,0 +1,8 @@
+.git
+logs
+data
+__pycache__
+*.pyc
+node_modules
+npm-debug.log
+Dockerfile
